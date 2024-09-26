@@ -27,7 +27,7 @@ fun main() {
             val headers = br.readLine().split(";")
 
             br.useLines { lines ->
-                lines.forEach {line ->
+                lines.forEach { line ->
                     val values = line.split(";")
                     val key = values[0]
 
@@ -49,7 +49,7 @@ fun main() {
     fun imprimirMapa(mapa: MutableMap<String, MutableMap<String, String>>) {
         for ((key, valueMap) in mapa) {
             println(key)
-            valueMap.forEach {header, value ->
+            valueMap.forEach { header, value ->
                 println("  $header: $value")
             }
         }
@@ -62,7 +62,7 @@ fun main() {
         }
     }
 
-    fun crearFichero(mapa: MutableMap<String, MutableMap<String, String>>) {
+    fun escribirFichero(mapa: MutableMap<String, MutableMap<String, String>>) {
         val rutaNueva = Path.of("src/main/resources/cotizacionMedia.csv")
 
         createFile(rutaNueva)
@@ -89,7 +89,7 @@ fun main() {
 
     imprimirMapa(cotizacionesMapa)
 
-    crearFichero(cotizacionesMapa)
+    escribirFichero(cotizacionesMapa)
 
 
 }
